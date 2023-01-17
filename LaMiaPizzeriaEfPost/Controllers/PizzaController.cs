@@ -1,6 +1,7 @@
 ﻿using LaMiaPizzeriaEfPost.Database;
 using LaMiaPizzeriaEfPost.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 
 namespace LaMiaPizzeriaModel.Controllers
@@ -25,9 +26,7 @@ namespace LaMiaPizzeriaModel.Controllers
         {
             using (PizzaContext db = new PizzaContext())
             {
-                Pizza pizza = (from p in db.Pizzas
-                               where p.nome == nome
-                               select p).FirstOrDefault();
+                Pizza pizza = db.Pizzas.Where(p => p.nome == nome).Include(c => c.Category).FirstOrDefault();
 
                 if (pizza != null)
                 {
