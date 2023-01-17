@@ -85,7 +85,12 @@ namespace LaMiaPizzeriaModel.Controllers
 
                 if (pizza != null)
                 {
-                    return View(pizza);
+                    List<Category> categories = db.Categories.ToList();
+                    CategoryPizzaView Modello = new();
+                    Modello.pizza = pizza;
+                    Modello.categories = categories;
+
+                    return View(Modello);
                 }
 
                 return NotFound("La pizza con il nome cercato non è disponibile");
@@ -95,22 +100,28 @@ namespace LaMiaPizzeriaModel.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(Pizza formData)
+        public IActionResult Update(CategoryPizzaView formData)
         {
             if (!ModelState.IsValid)
             {
+                using PizzaContext db = new();
+
+                List<Category> categories = db.Categories.ToList();
+                formData.categories = categories;
+
                 return View("Update", formData);
             }
 
             using (PizzaContext db = new PizzaContext())
             {
                 Pizza pizza = (from p in db.Pizzas
-                               where p.nome == formData.nome
+                               where p.nome == formData.pizza.nome
                                select p).FirstOrDefault();
 
-                pizza.descrizione = formData.descrizione;
-                pizza.prezzo = formData.prezzo;
-                pizza.foto = formData.foto;
+                pizza.descrizione = formData.pizza.descrizione;
+                pizza.prezzo = formData.pizza.prezzo;
+                pizza.foto = formData.pizza.foto;
+                pizza.CategoryId = formData.pizza.CategoryId;
 
                 db.SaveChanges();
             }
