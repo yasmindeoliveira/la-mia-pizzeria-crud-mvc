@@ -22,8 +22,12 @@ namespace LaMiaPizzeriaEfPost.Models
         public string descrizione { get; set; }
 
         [Required]
-        [Range(70,15000)]
+        [Range(0,15000)]
         public double prezzo { get; set; }
+
+        [ForeignKey("Category")]
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
 
         public Pizza()
         {

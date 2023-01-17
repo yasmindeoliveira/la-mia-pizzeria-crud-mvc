@@ -8,6 +8,8 @@ namespace LaMiaPizzeriaEfPost.Database
     {
         public DbSet<Pizza> Pizzas { get; set; }
 
+        public DbSet<Category> Categories { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=localhost;Database=LaMiaPizzeriaDb;" +

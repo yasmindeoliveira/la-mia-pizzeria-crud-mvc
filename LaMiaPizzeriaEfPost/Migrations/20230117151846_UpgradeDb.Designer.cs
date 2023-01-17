@@ -4,6 +4,7 @@ using LaMiaPizzeriaEfPost.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaMiaPizzeriaEfPost.Migrations
 {
     [DbContext(typeof(PizzaContext))]
-    partial class PizzaContextModelSnapshot : ModelSnapshot
+    [Migration("20230117151846_UpgradeDb")]
+    partial class UpgradeDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,19 +27,19 @@ namespace LaMiaPizzeriaEfPost.Migrations
 
             modelBuilder.Entity("LaMiaPizzeriaEfPost.Models.Category", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("categoria")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CategoryId");
+                    b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("LaMiaPizzeriaEfPost.Models.Pizza", b =>
@@ -44,7 +47,10 @@ namespace LaMiaPizzeriaEfPost.Migrations
                     b.Property<string>("nome")
                         .HasColumnType("varchar(100)");
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int?>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("categoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("descrizione")
@@ -60,18 +66,18 @@ namespace LaMiaPizzeriaEfPost.Migrations
 
                     b.HasKey("nome");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("categoryId");
 
                     b.ToTable("Pizzas");
                 });
 
             modelBuilder.Entity("LaMiaPizzeriaEfPost.Models.Pizza", b =>
                 {
-                    b.HasOne("LaMiaPizzeriaEfPost.Models.Category", "Category")
+                    b.HasOne("LaMiaPizzeriaEfPost.Models.Category", "category")
                         .WithMany("Pizzas")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("categoryId");
 
-                    b.Navigation("Category");
+                    b.Navigation("category");
                 });
 
             modelBuilder.Entity("LaMiaPizzeriaEfPost.Models.Category", b =>
