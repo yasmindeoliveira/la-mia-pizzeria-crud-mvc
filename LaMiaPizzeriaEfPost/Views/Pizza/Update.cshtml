@@ -5,6 +5,10 @@
     <form asp-controller="Pizza" asp-action="Update" method="post" class="title-card bg-tabella py-4 px-4">
         @Html.AntiForgeryToken()
 
+        <div class="mb-3 pizza-nome">
+            @Model.pizza.nome
+        </div>
+
             <input asp-for="pizza.nome" type="hidden" class="form-control"/>
 
         <div class="mb-3">
@@ -25,12 +29,12 @@
             <span asp-validation-for="pizza.foto" class="text-danger"></span>
         </div>
 
-        <select asp-for="pizza.CategoryId" rows="10" class="d-block w-100">
+        <select asp-for="pizza.CategoryId" rows="10" class="d-block mb-3">
                 <option value=""></option>
 
             @foreach (Category categoria in Model.categories)
             {
-                            <option value="@categoria.CategoryId">@categoria.categoria</option>
+                <option value="@categoria.CategoryId">@categoria.categoria</option>
             }
             </select>
             <span asp-validation-for="pizza.CategoryId" class="text-danger"></span>
