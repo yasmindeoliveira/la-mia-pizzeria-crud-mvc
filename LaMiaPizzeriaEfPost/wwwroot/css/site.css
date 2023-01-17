@@ -1,0 +1,76 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.image {
+    width: 200px;
+}
+
+.title {
+    color: white;
+    font-family: fredoka;
+}
+
+.title-card {
+    color: darkred;
+    font-family: fredoka;
+}
+
+.body-card {
+    font-family: fredoka;
+}
+
+.bg-pizza {
+    background-image: url("https://mocah.org/uploads/posts/583505-pizza-4k-hd.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.bg-tabella {
+    background-color: rgb(255, 255, 255, 0.50);
+    border-radius: 10px;
+}
+
+.text-tabella {
+    font-weight: bold;
+}
+
+.mycard {
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(255, 255, 255, 0.50);
+}
+
+.mybutton {
+    text-align: center;
+    background-color: rgb(255, 255, 255, 0.50);
+    font-family: fredoka;
+}
+
+.myimg {
+    border-radius: 10px;
+    width: 730px;
+}
+
+
+.bottoni-action{
+    display: flex;
+    justify-content: center;
+}

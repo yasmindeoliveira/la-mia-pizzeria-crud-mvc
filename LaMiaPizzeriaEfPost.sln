@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMiaPizzeriaEfPost", "LaMiaPizzeriaEfPost\LaMiaPizzeriaEfPost.csproj", "{786A4E26-5A54-4B4F-8652-E4CC1BB335CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{786A4E26-5A54-4B4F-8652-E4CC1BB335CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{786A4E26-5A54-4B4F-8652-E4CC1BB335CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{786A4E26-5A54-4B4F-8652-E4CC1BB335CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{786A4E26-5A54-4B4F-8652-E4CC1BB335CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54AD8E2A-6D2B-421C-98F3-246FDE4219CB}
+	EndGlobalSection
+EndGlobal
