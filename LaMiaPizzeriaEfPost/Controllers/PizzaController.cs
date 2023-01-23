@@ -1,5 +1,6 @@
 ﻿using LaMiaPizzeriaEfPost.Database;
 using LaMiaPizzeriaEfPost.Models;
+using LaMiaPizzeriaEfPost.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
@@ -47,6 +48,7 @@ namespace LaMiaPizzeriaModel.Controllers
             CategoryPizzaView Modello = new();
             Modello.pizza = new Pizza();
             Modello.categories = categories;
+            Modello.Ingredienti = IngredientsConverter.getIngredientsForSelect();
 
             return View("Create", Modello);
         }

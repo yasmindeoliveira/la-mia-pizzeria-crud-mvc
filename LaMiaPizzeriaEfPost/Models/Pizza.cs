@@ -28,6 +28,9 @@ namespace LaMiaPizzeriaEfPost.Models
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
+
+
+        public List<Ingredient> Ingredients { get; set; }
         
         public Pizza()
         {
